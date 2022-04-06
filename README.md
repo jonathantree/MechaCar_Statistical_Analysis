@@ -59,5 +59,53 @@ summary(lm(mpg ~ vehicle_length + vehicle_weight + spoiler_angle + ground_cleara
 - Question 3: Does this linear model predict mpg of MechaCar prototypes effectively? Why or why not?
   - Base on the R<sup>2</sup> value of 0.71, this linear model is effective in predicting the MPG. Although the multiple linear regression model is effective at predicting our current dataset, the lack of significant variables is evidence of overfitting.
 
+### Summary Statistics on Suspension Coils
+The Suspension_Coil.csv dataset contains the results from multiple production lots. In this dataset, the weight capacities of multiple suspension coils were tested to determine if the manufacturing process is consistent across production lots. The following RScript creates a summary statistics table to show:
 
- 
+- The suspension coil’s PSI continuous variable across all manufacturing lots
+- The following PSI metrics for each lot: mean, median, variance, and standard deviation.
+
+```RScript
+############################################################################
+###                                                                      ###
+###                          SUMMARY STATISTICS:                         ###
+###                         SUSPENSION COIL DATA                         ###
+###                                                                      ###
+############################################################################
+############################################################################
+
+#Data Source
+data <- "~/R_Analysis/BootCamp_Mod15/Challenge/Data/Suspension_Coil.csv"
+
+# read in the data
+SC_data <- read.csv(file = data, check.names = F, stringsAsFactors = F)
+
+#Create a summary statistics dataframe
+
+summary_stats <- SC_data %>% summarise(mean = mean(PSI),
+                                       median = median(PSI),
+                                       variance=var(PSI),
+                                       SD = sd(PSI),
+                                       n = n())
+#Use grouping to reveal the summary breakdown by Lot
+Lot_Summary <- SC_data %>% group_by(Manufacturing_Lot) %>% 
+  summarize(mean = mean(PSI),
+             median = median(PSI),
+             variance=var(PSI),
+             SD = sd(PSI),
+             n = n(),
+            .groups = 'keep')
+```
+ #### Summary Question
+- The design specifications for the suspension coils dictate that the variance of the suspension coils must not exceed 100 pounds per square inch. Does the current manufacturing data meet this design specification for all manufacturing lots in total and each lot individually? Why or why not?
+
+#### *Summary Statistics on the whole dataset*
+![Summary_Stats](/Images/SC_Summary.png)
+
+#### When we take a look at the summary statistics for the entire dataset, a `variance = 62.29` is within the tolerance established by the manufacturing design specifications
+
+#### *Summary Statistics on each Lot*
+![Summary_Stats](/Images/Lot_Summary.png)
+
+#### However, when we break it down by the Manufacturing lots, we can see that this the previous variance of the entire dataset was strongly skewed by the variance in Lot 3 (`variance = 170.29`) which is not within the design specifications. The other two lots had much lower varainces of 0.98 and 7.47. The data from these lots drives down the varaince of the entire dataset to give the impression that the variance of all three lots is within the stadrd of <100. 
+
