@@ -109,3 +109,13 @@ Lot_Summary <- SC_data %>% group_by(Manufacturing_Lot) %>%
 
 #### However, when we break it down by the Manufacturing lots, we can see that this the previous variance of the entire dataset was strongly skewed by the variance in Lot 3 (`variance = 170.29`) which is not within the design specifications. The other two lots had much lower varainces of 0.98 and 7.47. The data from these lots drives down the varaince of the entire dataset to give the impression that the variance of all three lots is within the stadrd of <100. 
 
+
+### T-Tests on Suspension Coils:
+The goal of this analysis is to perform t-tests to determine if all manufacturing lots and each lot individually are statistically different from the population mean of 1,500 pounds per square inch.
+
+Hypotheses:
+H<sub>0</sub> : There is no statistical difference between the observed sample mean and its presumed population mean.
+
+H<sub>a</sub> : There is a statistical difference between the observed sample mean and its presumed population mean.
+
+
