@@ -9,7 +9,12 @@ Using the datasets MechaCar_mpg.csv  Suspension_Coil.csv this project set out to
 
 This project used RStudio to conduct these analyses and tidyverse and ggplot libraries.
 
-### Deliverable 1 Results:
+### Linear Regression to Predict MPG:
+Hypotheses:
+H<sub>0</sub> : The slope of the linear model is zero, or m = 0
+
+H<sub>a</sub> : The slope of the linear model is not zero, or m ≠ 0
+
 Code:
 ```RScript
 ###########################################################################
@@ -41,5 +46,18 @@ lm(mpg ~ vehicle_length + vehicle_weight + spoiler_angle + ground_clearance + AW
 #Generate a summary table
 summary(lm(mpg ~ vehicle_length + vehicle_weight + spoiler_angle + ground_clearance + AWD, data = data_mpg))
 ```
+#### *Correlation Matrix*
+![CorrelationMatrix.png](/Images/D1_CorrMatric.png)
+
+#### *Summary Statistics for the Regression Model*
+![SummaryStats.png](/Images/D1_LR_Summary.png)
+
+- Question 1: Which variables/coefficients provided a non-random amount of variance to the mpg values in the dataset?
+  - As seen from the summary report of the linear model, the variables/coefficients provided a non-random amount of variance to the mpg values in the dataset were the intercept, vehicle length, and ground clearence and are statistically unlikely to provide random amounts of variance to the linear model. All of the remaining variables produced `Pr(>|t|)` that are above our defined confidence level of 0.05 and thus cannot be satistically considered unlikely sources of variance when predicting the MPG.
+- Question 2: Is the slope of the linear model considered to be zero? Why or why not?
+  - No the slope cannot be considered equal to zero based on a  `p-value: 5.35e-11`. We can thus reject the null hypothesis that the slope is equal to zero.
+- Question 3: Does this linear model predict mpg of MechaCar prototypes effectively? Why or why not?
+  - Base on the R<sup>2</sup> value of 0.71, this linear model is effective in predicting the MPG. Although the multiple linear regression model is effective at predicting our current dataset, the lack of significant variables is evidence of overfitting.
 
 
+ 
