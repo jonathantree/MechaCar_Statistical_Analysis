@@ -108,11 +108,11 @@ Lot_Summary <- SC_data %>% group_by(Manufacturing_Lot) %>%
 #### *Summary Statistics on each Lot*
 ![Summary_Stats](/Images/Lot_Summary.png)
 
-#### However, when we break it down by the Manufacturing lots, we can see that this the previous variance of the entire dataset was strongly skewed by the variance in Lot 3 (`variance = 170.29`) which is not within the design specifications. The other two lots had much lower varainces of 0.98 and 7.47. The data from these lots drives down the varaince of the entire dataset to give the impression that the variance of all three lots is within the stadrd of <100. 
+#### However, when we break it down by the Manufacturing lots, we can see that the previous variance of the entire dataset was strongly skewed by the variance in Lot 3 (`variance = 170.29`) which is not within the design specifications. The other two lots had much lower varainces of 0.98 and 7.47. The data from these lots drives down the variance of the entire dataset to give the impression that the variance of all three lots is within the standard of <100. 
 
 
 ### T-Tests on Suspension Coils:
-The goal of this analysis is to perform t-tests to determine if all manufacturing lots and each lot individually are statistically different from the population mean of 1,500 pounds per square inch.
+The goal of this analysis is to perform one-sample t-tests to determine if all manufacturing lots combined and each lot individually are statistically different from the population mean of 1,500 pounds per square inch.
 
 Hypotheses:
 H<sub>0</sub> : There is no statistical difference between the observed sample mean and its presumed population mean.
@@ -120,6 +120,8 @@ H<sub>0</sub> : There is no statistical difference between the observed sample m
 H<sub>a</sub> : There is a statistical difference between the observed sample mean and its presumed population mean.
 
 #### Results
+
+![t-tests](/Images/t-tests.png)
 
 #### *One sample t-test comparing the sample mean 1499 PSI of to the assumed mean of 1500 PSI*
 One Sample t-test
@@ -134,11 +136,11 @@ The one sample t-test of the sample mean when comparing to the population mean o
 - Lot 1 :
   - Mean : 1500 PSI
   - p-value : 1
-  - The sample mean from Lot 1 is numerically identical to the population mean of 1500 PSI and thus, produces the p-value of 1.
+  - The sample mean from Lot 1 is numerically equivelent to the population mean of 1500 PSI and thus, produces the p-value of 1.
 - Lot 2 :
   - Mean : 1500 PSI (1500.2 with the extra sig-fig)
   - p-value : 0.61
-  - The mean from Lot 2 is statistically no different than the population mean at a confidence level of 0.05
+  - The mean from Lot 2 is not statistically different than the population mean at a confidence level of 0.05
 - Lot 3 :
   - Mean : 1496 PSI 
   - p-value : 0.04
