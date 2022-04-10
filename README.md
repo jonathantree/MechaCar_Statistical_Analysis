@@ -1,16 +1,17 @@
 # MechaCar Statistical Analysis
 
 ## Project Overview
-Using the datasets MechaCar_mpg.csv  Suspension_Coil.csv this project set out to run a statistical analysis with the following objectives:
+Using the datasets MechaCar_mpg.csv and Suspension_Coil.csv this project set out to run a statistical analysis with the following objectives:
 - Deliverable 1: Linear Regression to Predict MPG
 - Deliverable 2: Summary Statistics on Suspension Coils
 - Deliverable 3: T-Test on Suspension Coils
 - Deliverable 4: Design a Study Comparing the MechaCar to the Competition
 
-This project used RStudio to conduct these analyses and tidyverse and ggplot libraries.
+This project used RStudio to conduct these analyses and tidyverse library.
 
 ### Linear Regression to Predict MPG:
 Hypotheses:
+
 H<sub>0</sub> : The slope of the linear model is zero, or m = 0
 
 H<sub>a</sub> : The slope of the linear model is not zero, or m ≠ 0
