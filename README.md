@@ -118,4 +118,28 @@ H<sub>0</sub> : There is no statistical difference between the observed sample m
 
 H<sub>a</sub> : There is a statistical difference between the observed sample mean and its presumed population mean.
 
+#### Results
+
+#### *One sample t-test comparing the sample mean 1499 PSI of to the assumed mean of 1500 PSI*
+One Sample t-test
+
+data:  SC_data$PSI
+- t = -1.8931, df = 149, p-value = 0.06028
+
+The one sample t-test of the sample mean when comparing to the population mean of 1500 PSI yields a p-value of 0.06. Thus, at an alpha of 0.05 we fail to reject the null hypthesis and there is no statistical difference between the sample mean and it presumed population mean.
+
+#### *Testing each lot's sample mean against the population mean of 1500 PSI*
+
+- Lot 1 :
+  - Mean : 1500 PSI
+  - p-value : 1
+  - The sample mean from Lot 1 is numerically identical to the population mean of 1500 PSI and thus, produces the p-value of 1.
+- Lot 2 :
+  - Mean : 1500 PSI (1500.2 with the extra sig-fig)
+  - p-value : 0.61
+  - The mean from Lot 2 is statistically no different than the population mean at a confidence level of 0.05
+- Lot 3 :
+  - Mean : 1496 PSI 
+  - p-value : 0.04
+  - The one-sample t-test comparing the mean PSI from Lot 3 produced a p-value of 0.04. Thus, the mean value of Lot 3 is statistically different than the population mean at an alpha-level of 0.05.
 
